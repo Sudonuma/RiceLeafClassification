@@ -4,12 +4,7 @@ import numpy as np
 import os
 from torchvision import datasets, models, transforms
 from torch.utils.data.sampler import SubsetRandomSampler
-from collections import OrderedDict
-import matplotlib.pyplot as plt
 from glob import glob
-from PIL import Image
-import matplotlib.image as mpimg
-import matplotlib.pyplot as plt
 import numpy as np
 import mlflow
 import mlflow.pytorch
@@ -124,7 +119,6 @@ mlflow.set_tracking_uri("http://127.0.0.1:5000")
 
 def train(n_epochs, loaders, model, optimizer, criterion, use_cuda):
     """returns trained model"""
-    # mlruns_path = "/home/sudonuma/Documents/Rice_Leaf_Classification_MLOps/mlruns"
     # initialize tracker for minimum validation loss
     valid_loss_min = np.Inf
 
@@ -183,5 +177,5 @@ def train(n_epochs, loaders, model, optimizer, criterion, use_cuda):
     return model
 
 
-model_vgg = train(3, dataloaders, model_vgg, optimizer,
+model_vgg = train(10, dataloaders, model_vgg, optimizer,
                       criterion, train_on_gpu)
