@@ -170,12 +170,12 @@ def train(n_epochs, loaders, model, optimizer, criterion, use_cuda):
             ## save the model if validation loss has decreased
             if valid_loss <= valid_loss_min:
                 print('Validation loss decreased ({:.6f} --> {:.6f}). Saving model..'.format(valid_loss_min, valid_loss))
-                # torch.save(model.state_dict(), save_path)
+                # torch.save(model.state_dict(), './model.pth')
                 mlflow.pytorch.log_model(model, "model")  # Log the model to MLflow
                 valid_loss_min = valid_loss
 
     return model
 
 
-model_vgg = train(10, dataloaders, model_vgg, optimizer,
+model_vgg = train(2, dataloaders, model_vgg, optimizer,
                       criterion, train_on_gpu)
