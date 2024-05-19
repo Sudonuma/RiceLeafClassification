@@ -11,7 +11,7 @@ import mlflow.pytorch
 
 
 mlflow.set_tracking_uri("http://127.0.0.1:5000")
-MODEL_PATH = "./mlruns/0/db5ea138df96488baf74d2164d466db8/artifacts/model"
+MODEL_PATH = "./mlruns/0/04f225cb815e4cfa9401a822e57485d3/artifacts/model"
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
