@@ -24,7 +24,7 @@ The `model_dev` directory contains scripts for model development:
     git clone https://github.com/Sudonuma/RiceLeafClassification.git
     ```
 
-2. **Navigate to the cloned directory**:
+2. **Navigate to the cloned directorythen to 'model/dev'** :
 
     ```sh
     cd RiceLeafClassification/model_dev
@@ -88,7 +88,7 @@ This setup ensures your Docker environment is properly configured to run your tr
 
 ## API Development
 
-1. **Navigate to the cloned directory**:
+1. **Navigate to `RiceLeafClassification/app`**:
 
     ```sh
     cd RiceLeafClassification/app
@@ -113,8 +113,8 @@ The `api` directory hosts the API for image classification:
     -v {your_local_path}/RiceLeafClassification/mlruns:/app/mlruns \
     app
     ```
-    your `mlruns` directory should be located in `RiceLeafClassification` because the saved models are used for the api.
-    For example, if your local dataset is at `/home/user/Documents/DataLabelledRice`, your `start.sh` should look like this:
+    - Your mlruns directory should be located in the RiceLeafClassification folder, as this is where the saved models required by the API are stored.
+    - your `start.sh` should look something like this:
 
     ```sh
     #!/bin/bash
@@ -129,7 +129,7 @@ The `api` directory hosts the API for image classification:
     MODEL_PATH = "./mlruns/0/{RUN_ID}/artifacts/model"
     ```
 
-    if your ID for instance is `f743517c95254d0e93d2a32187d690a7` then your path should look something like this:
+    If your ID for instance is `f743517c95254d0e93d2a32187d690a7` then your path should look something like this:
 
     ```
     MODEL_PATH = "./mlruns/0/f743517c95254d0e93d2a32187d690a7/artifacts/model"
@@ -144,12 +144,18 @@ The `api` directory hosts the API for image classification:
     docker build -t app .
     ```
 
-4. **Run `start.sh`**:
+4. **Give execution permission to `start.sh`**:
+
+    ```sh
+    chmod +x start.sh
+    ```
+
+5. **Run `start.sh`**:
 
     ```sh
     ./start.sh
     ```
 
-4. **Go to `http://0.0.0.0:80`**:
+6. **Go to `http://0.0.0.0:80`**:
 
     You can then select an image from your drive to classify. Simply upload the image and proceed to classification.
